@@ -1,9 +1,10 @@
 import './App.scss';
+import Login from './componets/forms/login';
 
 function App() {
   return (
     <div className="App">
-     hello
+      <Login />
     </div>
   );
 }
