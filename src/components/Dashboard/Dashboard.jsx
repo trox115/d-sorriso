@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import {useAuth } from '../../contexts/AuthContext';
 import {useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import app from '../../firebase';
 import 'firebase/firestore';
 
-export default function Dashboard() {
+ function Dashboard( {...props}) {
     const {currentUser, logout } = useAuth();
     const history = useHistory();
     const [clientes, setClientes] = useState([]);
@@ -32,10 +34,19 @@ export default function Dashboard() {
         getClientes();
     }, []);
 
+    console.log(props)
     return (
         <div>
-            {clientes[0].Morada}
+            {}
             <button onClick={handleLogout}>LogOut</button>
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        clientes: state.clientes.clientes
+    }
+}
+
+export default connect(mapStateToProps, null)(Dashboard);
