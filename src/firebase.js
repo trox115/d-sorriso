@@ -1,5 +1,6 @@
 import firebase from 'firebase/app'
 import "firebase/auth"
+import 'firebase/firestore';
 
 const app = firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -9,6 +10,8 @@ const app = firebase.initializeApp({
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_APP_ID
 })
+firebase.firestore().settings({ timestampsInSnapshots: true });
 
+//export const fbConfig = firebase.initializeApp(app);
 export const auth = app.auth();
 export default app;
