@@ -1,0 +1,29 @@
+@import '../../styles/colors.scss';
+
+.top {
+    display: flex;
+    width:80%;
+    margin-left:290px;
+    margin-top:50px;
+    justify-content: space-evenly;
+
+    &__card {
+        width: 20%;
+        height:150px;
+        background:$secondary;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__info{
+        font-size: 50px;
+    }
+}
