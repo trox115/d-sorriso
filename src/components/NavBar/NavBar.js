@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { IoIosPeople } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import { useHistory } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import styled from 'styled-components';
@@ -90,6 +92,8 @@ const UserPhoto = styled.img`
 export default function NavBar() {
   const [sidebar, setSideBar] = useState();
   const [userInf, setOpen] = useState();
+  const { currentUser, logout } = useAuth();
+  const history = useHistory();
 
   const showInfo = () => {
     setOpen(!userInf);
@@ -97,6 +101,12 @@ export default function NavBar() {
   const showSidebar = () => {
     setSideBar(!sidebar);
   };
+
+  async function handleLogout(e) {
+    e.preventDefault();
+    await logout();
+    history.push('/login')
+  }
   return (
     <>
       <Nav>
@@ -110,7 +120,7 @@ export default function NavBar() {
         {userInf && (
           <UserInfoWrap>
             <DropdownLink to='/opcoes'> Opções</DropdownLink>
-            <DropdownLink to='/logout'>Logout</DropdownLink>
+            <DropdownLink to='#' onClick={handleLogout}>Logout</DropdownLink>
           </UserInfoWrap>
         )}
         </UserInfo>
