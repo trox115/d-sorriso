@@ -28,5 +28,57 @@ export const Sidebardata = [
         icon: <AiIcons.AiFillHome />,
         iconClose: <RiIcons.RiArrowDownSFill />,
         iconOpen: <RiIcons.RiArrowUpSFill />,
-    }
+        subNav: [
+            {
+                title: 'Em stock',
+                path: '/stock',
+          },
+          {
+            title: 'Encomendar',
+            path:'/editarCliente'
+        },
+        {
+            title: 'Custo Material',
+            path:'/editarCliente'
+        },
+        ]
+    },
+
+    {
+        title: 'Orçamentos',
+        path: '/clientes',
+        icon: <AiIcons.AiFillHome />,
+        iconClose: <RiIcons.RiArrowDownSFill />,
+        iconOpen: <RiIcons.RiArrowUpSFill />,
+        subNav: [
+            {
+                title: 'Novo',
+                path: '/stock',
+          },
+          {
+            title: 'Aceites',
+            path:'/editarCliente'
+        },
+        ]
+    },
+    {
+        title: 'Educação',
+        path: '/clientes',
+        icon: <AiIcons.AiFillHome />,
+        iconClose: <RiIcons.RiArrowDownSFill />,
+        iconOpen: <RiIcons.RiArrowUpSFill />,
+        subNav: [
+          {
+            title: 'Inserir video',
+            path:'/editarCliente'
+        },
+        ]
+    },
+    {
+        title: 'Chat',
+        path: '/clientes',
+        icon: <AiIcons.AiFillHome />,
+        iconClose: <RiIcons.RiArrowDownSFill />,
+        iconOpen: <RiIcons.RiArrowUpSFill />,
+    },
 ]
