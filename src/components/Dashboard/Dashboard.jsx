@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from 'react'
-import { useAuth } from '../../contexts/AuthContext';
-import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase'
-import _ from 'lodash'
+import _ from 'lodash';
+import TopDashBoard from './TopDashBoard';
+import CenterDashboard from './CenterDashboard'
 import 'firebase/firestore';
 
 function Dashboard({...props }) {
-  const { currentUser, logout } = useAuth();
-  const history = useHistory();
+
   const [clientes, setClientes] = useState([]);
 
 
-  async function handleLogout(e) {
-    e.preventDefault();
-    await logout();
-    history.push('/login')
-  }
+
 
 
   useEffect(() => {
@@ -26,13 +21,15 @@ function Dashboard({...props }) {
 
   return (
     <div>
-      {clientes.length > 0 && _.map(clientes, (cliente, index) => {
+      {/* {clientes.length > 0 && _.map(clientes, (cliente, index) => {
         console.log(cliente)
         return(
           <div key={index}>{cliente.Nome} </div>
         )
       })}
-      <button onClick={handleLogout}>LogOut</button>
+      <button >LogOut</button> */}
+      <TopDashBoard />
+      <CenterDashboard />
     </div>
   )
 }
